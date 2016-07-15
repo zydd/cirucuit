@@ -4,7 +4,7 @@ void settings() {
   //noLoop();
 }
 
-int n = 140;
+int n = 20;
 ArrayList<photon> p;
 photon guide;
 
@@ -52,7 +52,6 @@ void draw() {
   //guide.draw(this);
   //guide.visible = true;
 
-//  mouseClicked();
   //saveFrame("frames/####.png");
   if (frameCount % 100 == 0) {
     for (int i = 0; i < n; ++i)
@@ -82,5 +81,16 @@ void mouseClicked() {
 }
 
 void keyPressed(KeyEvent e) {  
-  println(e.getKeyCode());
+  switch(e.getKey()) {
+    case 'h': case 'H':
+      for (int i = 0; i < n; ++i) {
+        p.get(i).oneHit = !p.get(i).oneHit;
+      }
+      break;
+    case 'o': case 'O':
+      for (int i = 0; i < n; ++i) {
+        p.get(i).orbit = !p.get(i).orbit;
+      }
+      break;
+  }
 }
